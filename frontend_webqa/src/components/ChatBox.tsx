@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useRef } from "react";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 
 interface ChatBoxProps {
-  messages: { type: string; content: React.ReactNode }[];
+  messages: { type: string; content: any }[]; // Update content type to any
   onSubmit: (message: string) => void;
 }
 
@@ -29,7 +30,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ messages, onSubmit }) => {
                   content={message.content}
                 />
               ))}
-              <div ref={messagesEndRef} /> {/* Empty div to scroll to */}
+              <div ref={messagesEndRef} />
             </div>
           </div>
         </div>

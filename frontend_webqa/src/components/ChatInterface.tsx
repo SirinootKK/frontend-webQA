@@ -1,12 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getResponseWebQA } from "../services/apiService";
 import ChatBox from "./ChatBox";
 
 const ChatInterface: React.FC = () => {
-  const [responses, setResponses] = useState<
-    { type: string; content: React.ReactNode }[]
-  >([]);
+  const storedResponses = localStorage.getItem("chatResponses");
+  const initialResponses = storedResponses ? JSON.parse(storedResponses) : [];
+
+  const [responses, setResponses] =
+    useState<{ type: string; content: any }[]>(initialResponses);
+
+  useEffect(() => {
+    const storedResponses = localStorage.getItem("chatResponses");
+    const initialResponses = storedResponses ? JSON.parse(storedResponses) : [];
+
+    setResponses(initialResponses);
+  }, []);
 
   const handleSubmit = async (message: string) => {
     try {
@@ -16,10 +25,19 @@ const ChatInterface: React.FC = () => {
           .filter((item: any) => item.text && item.url)
           .map((item: any) => ({
             type: "bot",
-            content: <a href={item.url}>{item.text}</a>,
+            content: {
+              text: item.text,
+              href: item.url,
+            },
           }));
         const userMessage = { type: "user", content: message };
-        setResponses([...responses, userMessage, ...formattedResponses]);
+        const updatedResponses = [
+          ...responses,
+          userMessage,
+          ...formattedResponses,
+        ];
+        setResponses(updatedResponses);
+        localStorage.setItem("chatResponses", JSON.stringify(updatedResponses));
       } else {
         console.error("Invalid response data:", data);
       }

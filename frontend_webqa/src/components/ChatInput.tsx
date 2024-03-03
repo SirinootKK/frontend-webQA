@@ -21,10 +21,6 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSubmit }) => {
     }
   };
 
-  const handleExampleClick = (example: string) => {
-    setMessage(example);
-  };
-
   const examples = [
     "ภูมิทัศน์สื่อไทยในปี 2567 มีแนวโน้มว่า ",
     "Fragmentation คือ",
