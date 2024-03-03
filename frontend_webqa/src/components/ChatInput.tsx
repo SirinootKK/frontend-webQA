@@ -42,15 +42,15 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center mb-2">
         {examples.map((example, index) => (
-          <button
+          <div
             key={index}
-            className="mr-2 px-2 py-1 bg-blue-500 hover:bg-blue-800 text-white rounded-md focus:outline-none"
-            onClick={() => handleExampleClick(example)}
+            className="transition-all mr-2 px-5 py-1 text-white hover:text-black duration-300 bg-[#8B8B8B] hover:bg-[#C3D5F0] rounded-md focus:outline-none ease-in-out transform"
+            onClick={() => setMessage(example)}
           >
             {example}
-          </button>
+          </div>
         ))}
       </div>
       <div className="flex items-center">
@@ -63,7 +63,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSubmit }) => {
         />
         <button
           type="submit"
-          className="py-2 bg-trnsparent text-white"
+          className="py-2 bg-trnsparent text-white transition delay-150 duration-300  ease-in-out transform"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >

@@ -14,7 +14,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ type, content }) => {
         className={`px-5 py-3 ${
           type === "bot"
             ? "bg-gray-200 hover:bg-green-200 rounded-t-xl rounded-br-xl"
-            : "bg-blue-500 text-white rounded-t-xl rounded-bl-xl"
+            : "bg-blue-500 text-white rounded-t-xl rounded-bl-xl font-semibold"
         } inline-block overflow-y-auto `}
       >
         {type === "bot" ? (

@@ -19,7 +19,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ messages, onSubmit }) => {
   return (
     <div className="h-full w-full">
       <div className="flex flex-col justify-center items-center h-screen">
-        <div className="h-4/5 w-10/12 bg-white border-2 shadow-lg p-10 my-5 rounded-2xl">
+        <div className="h-4/5 w-10/12 bg-white shadow-lg p-10 mb-5 rounded-2xl">
           <div className="flex-auto overflow-auto h-full">
             <div className="flex flex-col px-20 py-5 overflow-auto vertical-scrollbar">
               {messages.map((message, index) => (
