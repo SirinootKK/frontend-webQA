@@ -4,7 +4,7 @@ import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 
 interface ChatBoxProps {
-  messages: { type: string; content: any }[]; // Update content type to any
+  messages: { type: string; content: any }[];
   onSubmit: (message: string) => void;
 }
 
