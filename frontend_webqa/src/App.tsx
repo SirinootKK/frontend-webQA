@@ -1,11 +1,11 @@
 import React from "react";
 import ChatInterface from "./components/ChatInterface";
+import "./App.css";
 
 const App: React.FC = () => {
   return (
     <div>
-      <h1>My React App</h1>
-      <ChatInterface name="John" />
+      <ChatInterface />
     </div>
   );
 };
