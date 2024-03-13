@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import { Logo } from "../../public/images/index.ts";
+// import { Logo } from "../../public/images/index.ts";
 
 interface ChatMessageProps {
   type: string;
@@ -22,7 +22,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ type, content }) => {
         {type === "bot" ? (
           typeof content === "object" && content.text ? (
             <>
-              <img src={Logo} className="w-36 pt-1.5 pb-1.5" />
+              {/* <img src={Logo} className="w-36 pt-1.5 pb-1.5" /> */}
               <a href={content.href}>{content.text}</a>
             </>
           ) : (
